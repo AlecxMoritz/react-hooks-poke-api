@@ -1,4 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import {
+    Input,
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    Button,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
+} from 'reactstrap';
 
 const PokeSearch = (props) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -25,14 +40,22 @@ const PokeSearch = (props) => {
                 props.setSearchSpecies(data);
             })
             .catch(err => console.log(err));
-            // * flavortext[71]
+        // * flavortext[71]
 
     }
 
     return (
         <React.Fragment>
-            <input type="text" onChange={(e) => setSearchTerm(e.target.value)}/>
-            <button onClick={search}>Search</button>
+            <Navbar color="light" light expand="md">
+                <Nav className="ml-auto" navbar>
+                    <NavItem>
+                        <Input type="text" onChange={(e) => setSearchTerm(e.target.value)} />
+                    </NavItem>
+                    <NavItem>
+                        <Button onClick={search}>Search</Button>
+                    </NavItem>
+                </Nav>
+            </Navbar>
         </React.Fragment>
     )
 }

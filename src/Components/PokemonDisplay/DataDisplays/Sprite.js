@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Button } from 'reactstrap'
 const btnStyles = {
     display : 'block',
     margin: 'auto'
@@ -20,11 +20,11 @@ const Sprite = (props) => {
     const sprite =() => {
         if(toggle === 'default') {
             return (
-                <img src={ props.defaultSprite }/>
+                <img src={ props.defaultSprite } alt='sprite' />
             )
         } else {
             return (
-                <img src={ props.shinySprite } />
+                <img src={ props.shinySprite } alt='sprite' />
             )
         }
     }
@@ -40,7 +40,7 @@ const Sprite = (props) => {
     return (
         <React.Fragment>
             { sprite() }
-            <button style={btnStyles} onClick={ toggleSprite }>{ text() }</button>
+            <Button style={btnStyles} onClick={ toggleSprite }>{ text() }</Button>
         </React.Fragment>
     )
 
